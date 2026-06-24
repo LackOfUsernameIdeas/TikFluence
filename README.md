@@ -109,33 +109,23 @@ Open the XAMPP Control Panel and start:
 
 Create a database matching `db_name` in `config.php` (default: `tikfluence`) and import/create the required tables.
 
-### 4. Run the project
+### 4. Retrieve data
 
-Place the project folder in your Apache web root (e.g. `C:/xampp/htdocs/TikFluence`), then open:
-
-```
-http://localhost/TikFluence/index.php
-```
-
-### 5. Populate data
-
-The leaderboard and stats pages read from the database, so run the scraper at least once before browsing them:
+The leaderboard and stats pages rely on data from the database, so run the scraper at least once before browsing them:
 
 ```bash
 php scraping/tiktok.php
 ```
 
-> Note: `scraping/tiktok.php` currently `include`s `databaseManager.php` via an absolute server path (`/home/noit1/public_html/fluence/includes/databaseManager.php`) left over from the production server - update this to a relative path (or your local absolute path) before running it locally.
+> Note: `scraping/tiktok.php` currently includes `databaseManager.php` via an absolute server path (`/home/noit1/public_html/fluence/includes/databaseManager.php`) from the used production server. Replace it with a path based on your project structure.
 
-That's it - no further setup is required for local development.
-
-The **"My Statistics"** page (`individualStats.php`) additionally requires a working TikTok OAuth setup (see [TikTok API Access](#tiktok-api-access)) and the separate Socket.IO proxy service to show live data; all other pages are publicly accessible without login.
+The **"My Statistics"** page (`individualStats.php`) additionally requires a working TikTok OAuth setup and a separate Socket.IO proxy service to show live data. All other pages are publicly accessible without login.
 
 ---
 
 ## Hosting / Deployment
 
-The production instance runs on a standard Apache/PHP/MySQL hosting environment (cPanel-style), reachable at `https://fluence.noit.eu/`.
+The production instance runs on a standard Apache/PHP/MySQL hosting environment (cPanel-style).
 
 ### Cron job
 
@@ -145,7 +135,7 @@ The production instance runs on a standard Apache/PHP/MySQL hosting environment 
 php /home/<your_user>/public_html/<your_app_dir>/scraping/tiktok.php
 ```
 
-Make sure the absolute include path at the top of `tiktok.php` matches your server's actual path.
+Make sure the full server file path at the top of `tiktok.php` matches your server's actual path.
 
 ### TikTok OAuth redirect
 
@@ -161,5 +151,5 @@ The live profile stats on `individualStats.php` connect via Socket.IO to a separ
 
 - The TikTok integration uses the **TikTok for Developers** Open API: OAuth login with `client_key` / `client_secret`, scopes `user.info.basic` and `video.list`, and the `/oauth/access_token/` and `/oauth/refresh_token/` endpoints.
 - A successful login stores `tiktok_access_token` (1 hour) and `tiktok_refresh_token` (24 hours) as cookies.
-- Getting API approval was the hardest part of this project - it took **14 submission attempts** to the TikTok Developer team before access was granted. The project documentation includes the email correspondence from that process.
-- The hashtag-trend endpoints (`creative_radar_api`) are not part of the official API and instead rely on a logged-in TikTok Ads web session cookie, which expires periodically and needs to be re-exported manually (see the credentials note above).
+- Getting API approval was the hardest part of this project - it took **14 submission attempts** to the TikTok Developer team before access was granted.
+- The hashtag-trend endpoints (`creative_radar_api`) are not part of the official API and instead rely on a logged-in TikTok Ads web session cookie.
