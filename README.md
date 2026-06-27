@@ -48,7 +48,7 @@ TikFluence/
 ## Tech Stack
 
 **Frontend**  
-PHP (server-rendered pages), Bootstrap, jQuery, jQuery DataTables, Chart.js, Socket.IO Client
+Bootstrap, jQuery, jQuery DataTables, Chart.js, Socket.IO Client
 
 **Backend**  
 PHP, PDO, MySQL, JavaScript, Apache, Cronjob
@@ -151,5 +151,4 @@ The live profile stats on `individualStats.php` connect via Socket.IO to a separ
 
 - The TikTok integration uses the **TikTok for Developers** Open API: OAuth login with `client_key` / `client_secret`, scopes `user.info.basic` and `video.list`, and the `/oauth/access_token/` and `/oauth/refresh_token/` endpoints.
 - A successful login stores `tiktok_access_token` (1 hour) and `tiktok_refresh_token` (24 hours) as cookies.
-- Getting API approval was the hardest part of this project - it took **14 submission attempts** to the TikTok Developer team before access was granted.
 - The hashtag-trend endpoints (`creative_radar_api`) are not part of the official API and instead rely on a logged-in TikTok Ads web session cookie.
