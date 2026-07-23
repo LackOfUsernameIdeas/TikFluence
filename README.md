@@ -1,5 +1,7 @@
 # TikFluence
 
+[![fluence.noit.eu](https://img.shields.io/badge/Visit%20at%20https://fluence.noit.eu-9c27b0?style=for-the-badge)](https://fluence.noit.eu/)
+
 > **Data analytics platform** that proves a real phenomenon: when a song gets used repeatedly across **TikTok** videos, the platform's exposure gradually pushes up that song's popularity on **Spotify and YouTube** over time - TikTok acting as a launchpad that influences a track's trajectory across other music platforms. An **Influence Algorithm** detects songs whose TikTok peak predates their Spotify peak. The platform surfaces this through daily-updated **leaderboards** (Top 200 Global/Bulgaria TikTok songs, Top 200 TikTokers, Top 200 videos), **per-song/per-creator stats pages**, and a **"My Statistics"** page showing a logged-in user's live TikTok profile data in real time. This was my **first serious project**, built primarily as a **learning exercise** to get comfortable working with the technologies involved
 
 ---
